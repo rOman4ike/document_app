@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after
+  box-sizing: border-box
+
+*
+  margin: 0
+  padding: 0
+
+body,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+blockquote,
+th,
+td
+  margin: 0
+  padding: 0
+
+body
+  min-height: 100vh
+  font-family: $font-family-primary
+  font-size: 18px
+  font-weight: 400
+  line-height: 1.5
+  color: $color-text-body
+  display: flex
+  flex-direction: column
+
+main
+  margin-top: 40px
+  margin-bottom: 40px
+  flex-grow: 1
+
+address
+  font-style: normal
+
+h1
+  font-size: 32px
+  line-height: 1.3
+  margin-bottom: 20px
+
+h2
+  font-size: 24px
+  margin-bottom: 10px
+
+h3
+  font-size: 20px
+  margin-bottom: 10px
+
+a
+  text-decoration: none
+  cursor: pointer
+
+hr
+  border: $border
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+ul, li
+  list-style: none
+
+img,
+picture,
+svg
+  max-width: 100%
+  height: auto
+
+button,
+input
+  all: unset
+  cursor: pointer
+  box-sizing: border-box
+
+input,
+button,
+textarea,
+select
+  font: inherit
+  line-height: 1.5
+
+  &:focus
+    outline: none
+
+strong,
+th,
+b,
+label
+  font-weight: 600
+  color: $color-dark
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  font-weight: 400
+
+select
+  background-color: initial
+  appearance: none
+
+legend
+  display: table
+  padding: 0
+
+fieldset
+  border: 0
+  margin: 0
+  min-width: 0
+  padding: 0
+
+body:not(:-moz-handler-blocked) fieldset
+  display: table-cell

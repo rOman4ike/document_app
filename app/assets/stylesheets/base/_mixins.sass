@@ -1,0 +1,46 @@
+@use "sass:map"
+
+=declare-font-face($font-family, $font-filename, $font-weight: normal, $font-style: normal, $font-stretch: normal)
+  $local: local('Nekst')
+  $woff: url("#{$font-filename}.woff") format("woff")
+  $woff2: url("#{$font-filename}.woff2") format("woff2")
+  $ttf: url("#{$font-filename}.ttf") format("truetype")
+  $eot: url("#{$font-filename}.eot?#iefix") format("embedded-opentype")
+  $otf: url("#{$font-filename}.otf") format('opentype')
+
+  @font-face
+    font-family: "#{$font-family}"
+    src: $local, $woff2, $woff, $ttf, $eot, $otf
+    font-weight: $font-weight
+    font-style: $font-style
+    font-stretch: $font-stretch
+
+=media-desktop
+  @media (min-width: #{$desktop})
+    @content
+
+=media-tablet
+  @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px})
+    @content
+
+=media-mobile
+  @media (max-width: #{$tablet - 1px})
+    @content
+
+=truncate-text
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+=arrow($direction, $size: 8px)
+  $direction-map: ('top': rotateZ(45deg), 'right': rotateZ(135deg), 'bottom': rotateZ(225deg), 'left': rotateZ(315deg))
+  content: ''
+  position: absolute
+  display: inline-block
+  width: $size
+  height: $size
+  border-top: 2px solid
+  border-left: 2px solid
+  border-color: $color-dark
+  transition: border-color 0.3s ease-out, transform 0.3s ease-out
+  transform: map.get($direction-map, $direction)

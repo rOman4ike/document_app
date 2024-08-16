@@ -1,0 +1,58 @@
+.container
+  margin-right: auto
+  margin-left: auto
+  padding-left: 15px
+  padding-right: 15px
+
+  +media-desktop
+    width: 1170px
+
+  +media-tablet
+    width: 750px
+
+  +media-mobile
+    width: auto
+
+.desktop-only
+  @media (max-width: #{$desktop - 1px})
+    display: none !important
+
+.tablet-only
+  @media (min-width: #{$desktop}), (max-width: #{$tablet - 1px})
+    display: none !important
+
+.mobile-only
+  @media (min-width: #{$tablet})
+    display: none !important
+
+.js-hidden
+  display: none !important
+
+.js-visible
+  display: block !important
+
+.js-hidden-smooth
+  animation: out 700ms ease both !important
+
+.js-visible-smooth
+  animation: in 700ms ease both !important
+
+.js-disable-scroll
+  height: 100% !important
+  overflow: hidden !important
+
+@keyframes in
+  0%
+    opacity: 0
+    visibility: hidden
+  100%
+    opacity: 1
+    visibility: visible
+
+@keyframes out
+  0%
+    opacity: 1
+    visibility: visible
+  100%
+    opacity: 0
+    visibility: hidden

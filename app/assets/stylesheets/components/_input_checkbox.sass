@@ -1,0 +1,30 @@
+.input-checkbox
+  width: 100%
+  font-size: 15px
+
+  &__inner
+    display: flex
+    align-items: center
+    gap: 10px
+
+  &__field
+    border: $border
+    border-radius: $border-radius
+    width: 16px
+    height: 16px
+    min-height: 16px
+    min-width: 16px
+    transition: border-color 0.3s ease-out
+    background: $color-white
+
+    &:checked
+      background: $color-primary
+      background-image: url('icons/check.svg')
+      background-position: center
+      background-position-x: 3px
+      background-repeat: no-repeat
+
+    &:focus,
+    &:hover,
+    &:active
+      border-color: $color-primary

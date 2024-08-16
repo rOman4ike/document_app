@@ -1,0 +1,98 @@
+.vdp-datepicker
+
+  .vdp-datepicker__calendar
+    border-radius: $border-radius
+
+  .vdp-datepicker__calendar header .prev:after
+    border: none
+    +arrow('left')
+    border-color: $color-neutral-dark
+    left: 57%
+    top: 38%
+
+  .vdp-datepicker__calendar header .next:after
+    border: none
+    +arrow('right')
+    left: 18%
+    top: 37%
+    border-color: $color-neutral-dark
+
+  .cell.day:not(.blank),
+  .cell.month,
+  .cell.year
+    border: none !important
+    box-shadow: 1px 0 0 0 $color-neutral-dark, 0 1px 0 0 $color-neutral-dark, 1px 1px 0 0 $color-neutral-dark, 1px 0 0 0 $color-neutral-dark inset, 0 1px 0 0 $color-neutral-dark inset
+
+  header
+    display: flex !important
+    gap: 10px !important
+    margin-bottom: $indent-lg
+    line-height: 34px !important
+
+    .prev
+      position: relative
+      order: 1
+
+    .next
+      order: 2
+
+    .up
+      position: relative
+      border: none !important
+
+    .next:not(.disabled),
+    .prev:not(.disabled),
+    .up:not(.disabled)
+      border: 1px solid $color-neutral-dark !important
+      border-radius: $border-radius
+
+      &:hover, &:active, &:focus
+        border: 1px solid $color-primary !important
+        background: none !important
+        transition: .4s linear !important
+
+        &:after
+          border-color: $color-primary
+
+  &__calendar
+    margin-top: 10px !important
+    border: 1px solid $color-primary !important
+    padding: 15px !important
+
+    .cell
+      border: 1px solid $color-neutral-dark !important
+
+    .day,
+    .weekend
+
+      &:hover
+        border: 1px solid $color-primary !important
+
+    .day-header
+      font-size: 100% !important
+      border: none !important
+      color: $color-dark !important
+
+    .blank
+      border: none !important
+
+      &:hover
+        border: none !important
+
+    .selected
+      border: 1px solid $color-primary !important
+      background-color: $color-primary !important
+      color: $color-white
+
+  .icon-datepicker
+    display: block
+    position: absolute
+    height: 16px
+    width: 16px
+    right: 8px
+    top: calc(50% - 8px)
+    background: url('icons/calendar.svg') no-repeat center center
+    transition: 0.2s background ease-out
+
+    &--active
+      background: transparent url('icons/calendar-hover.svg') no-repeat center center

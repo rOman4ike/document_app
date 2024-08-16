@@ -1,0 +1,31 @@
+.icon
+  display: inline-block
+  width: 34px
+  height: 34px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+
+  $icons: download, edit, delete, copy, delete-gray, tag, fax, telephone, mail, address, clean, question, arrow-up, burger
+  @each $icon in $icons
+    &--#{$icon}
+      background: url('icons/#{$icon}.svg') no-repeat center center
+      transition: 0.2s background ease-out
+      background-size: contain
+
+      &:hover,
+      &:focus
+        background: transparent url('icons/#{$icon}-hover.svg') no-repeat center center
+        background-size: contain
+
+    &--#{$icon}#{&}--active
+      background: transparent url('icons/#{$icon}-active.svg') no-repeat left center
+      background-size: contain
+
+  &--xs
+    width: 10px
+    height: 10px
+
+  &--sm
+    width: 16px
+    height: 16px

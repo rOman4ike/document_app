@@ -1,0 +1,28 @@
+.page
+  display: flex
+  flex-direction: column
+  gap: $indent-lg
+
+  &__content
+    display: flex
+    gap: 68px
+
+  &__aside
+
+  &__main
+    flex-grow: 1
+
+  &__paginate
+    margin-top: $indent-lg
+    justify-content: end
+
+  +media-tablet
+
+    &__content
+      gap: 30px
+
+  +media-mobile
+
+    &__content
+      flex-direction: column
+      gap: $indent-lg

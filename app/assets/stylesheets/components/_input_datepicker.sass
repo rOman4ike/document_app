@@ -1,0 +1,29 @@
+.input-datepicker
+  width: 100%
+
+  &__field
+    position: relative
+    font-size: 14px
+    border: $border
+    border-radius: $border-radius
+    width: 100%
+    padding: 6px 10px 7px
+    transition: border-color 0.3s ease-out, background 0.3s ease-out
+    background: $color-white
+    background: url('icons/calendar.svg')
+    background-repeat: no-repeat
+    background-position-x: calc(100% - 10px)
+    background-position-y: center
+
+    &:focus,
+    &:active
+      border-color: $color-primary
+      background: url('icons/calendar-hover.svg')
+      background-repeat: no-repeat
+      background-position-x: calc(100% - 10px)
+      background-position-y: center
+
+#{$parent}--errors
+
+  #{$parent}__field
+    border-color: $color-danger

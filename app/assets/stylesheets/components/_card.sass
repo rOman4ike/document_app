@@ -1,0 +1,37 @@
+.card
+  border: $border
+  border-radius: 2px
+  padding: 10px 15px 15px 15px
+  display: flex
+  flex-direction: column
+  gap: 10px
+
+  &--bg
+    background: $color-neutral-light
+    border: none
+
+  &__header
+    display: flex
+    justify-content: space-between
+    gap: 15px
+
+  &__title
+    font-size: 20px
+
+  &__actions
+    display: flex
+    flex-wrap: wrap
+    gap: 5px
+
+  +media-tablet
+
+    &__actions
+      flex-basis: min-content
+
+  +media-mobile
+
+    &__title
+      font-size: 18px
+
+    &__actions
+      flex-basis: min-content

@@ -1,0 +1,70 @@
+.btn
+  display: inline-block
+  border-radius: $border-radius
+  padding: 8px 15px 11px
+  font-size: 15px
+  text-transform: capitalize
+  transition: all 0.3s
+  border: 1px solid
+
+  &--primary
+    background: $color-primary
+    color: $color-white
+    border-color: $color-primary
+
+    &:hover,
+    &:focus,
+    &:focus-within
+      background: $color-primary-dark
+
+    &:active
+      background: $color-primary
+      box-shadow: 0px 4px 8px 0px #332F79 inset, 0px 2px 2px 0px #2B2867 inset
+
+  &--outline-primary
+    background: transparent
+    color: $color-primary
+    border-color: $color-primary
+
+    &:hover,
+    &:focus,
+    &:focus-within
+      background: $color-primary
+      color: $color-white
+
+    &:active
+      box-shadow: 0px 4px 8px 0px #332F79 inset, 0px 2px 2px 0px #2B2867 inset
+      background: $color-primary
+      color: $color-white
+
+  &--secondary
+    background: $color-secondary
+    color: $color-white
+    border-color: $color-secondary
+
+    &:hover,
+    &:focus,
+    &:focus-within
+      background: #9abf38
+      color: $color-white
+
+    &:active
+      background: #9abf38
+      color: $color-white
+      box-shadow: 0px 4px 8px 0px #8bac32 inset, 0px 2px 2px 0px #84a32f inset
+
+
+  &--danger
+    background: transparent
+    color: $color-danger
+    border-color: $color-danger
+
+    &:hover,
+    &:focus,
+    &:focus-within
+      background: $color-danger
+      color: $color-white
+
+    &:active
+      box-shadow: inset 0px 2px 2px #c71f2e, inset 0px 4px 8px #d42737
+      color: $color-white

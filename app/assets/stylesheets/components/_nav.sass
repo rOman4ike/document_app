@@ -1,0 +1,81 @@
+.nav
+  background-color: $color-primary
+
+  &__list
+    display: flex
+
+  &__link
+    color: $color-white
+    padding: 10px 15px
+    display: block
+    font-size: 15px
+
+    &:hover,
+    &:focus,
+    &:focus-within
+      color: $color-primary
+      text-decoration: none
+      background-color: $color-white
+
+    &--active
+      background-color: $color-secondary
+
+  +media-desktop
+    &__outer
+      animation: none
+
+  +media-tablet
+    &__outer
+      animation: none
+
+  +media-mobile
+    position: relative
+    border-top: 1px solid $color-primary
+
+    &__outer
+      position: absolute
+      visibility: hidden
+      width: 100%
+      top: 0
+      background: $color-white
+
+      &::after
+        content: ""
+        display: block
+        position: absolute
+        width: 100%
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0) 100%)
+        height: 60px
+        bottom: -60px
+
+    &__list
+      flex-direction: column
+
+    &__item
+      position: relative
+
+      &:not(:last-child)
+        &:after
+          content: ''
+          display: block
+          position: absolute
+          bottom: 0
+          left: -15px
+          width: 100vw
+          border-bottom: $border
+
+    &__link
+      color: $color-primary
+      padding: 5px 0
+      margin: 10px 0
+      font-weight: 600
+
+      &:hover,
+      &:focus,
+      &:focus-within
+        color: $color-primary
+        text-decoration: underline
+        background-color: none
+
+      &--active
+        background: none

@@ -1,0 +1,83 @@
+$parent: '.dropdown'
+
+#{$parent}
+  border: $border
+  border-radius: 2px
+
+  &__header
+    position: relative
+    padding: 10px 15px
+    padding-right: 25px
+    cursor: pointer
+
+    &:after
+      +arrow('bottom', 16px)
+      transform: rotateZ(225deg) translate(6px, 6px)
+      border-color: $color-primary
+      top: 42%
+      right: 30px
+
+    &--active
+
+      &:after
+        +arrow('top', 16px)
+        transform: rotateZ(45deg) translate(1px, 1px)
+        border-color: $color-primary
+
+  &__body
+    padding: 15px
+    border-top: $border
+
+.dropdown--filter
+  border: none
+
+  #{$parent}__header
+    padding: 0
+    padding-right: 25px
+    font-size: 16px
+    color: $color-dark
+    font-weight: 600
+    transition: color 0.3s
+    cursor: pointer
+
+    &:after
+      width: 8px
+      height: 8px
+      right: 5px
+      border-color: $color-dark
+      transform: rotateZ(225deg) translate(1px, 1px)
+
+    &:hover,
+    &:focus
+      color: $color-primary
+
+      &:after
+        border-color: $color-primary
+
+    &--active
+      color: $color-primary
+
+      &:after
+        border-color: $color-primary
+        transform: rotateZ(45deg) translate(1px, 1px)
+
+  #{$parent}__body
+    padding: 0
+    margin-top: 10px
+    border: 0
+    scrollbar-width: none
+    max-height: 150px
+    overflow-y: auto
+
+// Vue - Transition Component
+
+.dropdown-height-enter-active,
+.dropdown-height-leave-active
+  transition: max-height 0.3s ease-out
+  max-height: 150px
+
+.dropdown-height-enter,
+.dropdown-height-leave-to
+  padding-top: 0
+  padding-bottom: 0
+  max-height: 0

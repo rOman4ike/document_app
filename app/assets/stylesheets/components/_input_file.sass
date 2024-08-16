@@ -1,0 +1,40 @@
+.input-file
+
+  &__btn
+    position: relative
+    margin-right: $indent-lg
+
+  &__placeholder
+    display: block
+    color: $color-white
+    user-select: none
+
+    &::before
+      content: url('folder-open.svg')
+      position: relative
+      top: 3px
+      margin-right: 5px
+
+  &__field
+    display: inline-block
+    position: absolute
+    z-index: 1
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    opacity: 0
+    cursor: pointer
+    text-indent: -999px
+
+  &__file
+    display: inline-flex
+    gap: 5px
+    font-size: 15px
+
+  &__file-name
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    display: inline-block
+    max-width: 300px

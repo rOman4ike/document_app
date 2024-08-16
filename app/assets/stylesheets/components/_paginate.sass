@@ -1,0 +1,19 @@
+.paginate
+  display: flex
+
+  &__item
+    font-size: 15px
+    padding: 3px 10px 5px
+    color: $color-primary-old
+    cursor: pointer
+    transition: 0.3s
+
+    &:hover
+      background: $color-neutral-light
+
+    &--active
+      background: $color-dark
+      color: $color-white
+
+      &:hover
+        background: $color-primary

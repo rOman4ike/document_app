@@ -1,0 +1,21 @@
+$parent: '.list'
+
+#{$parent}
+
+  &--row
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    gap: 10px
+
+  &__item
+
+    &:not(:last-child)
+      margin-bottom: $indent-lg
+
+.list--row
+
+  #{$parent}__item
+
+    &:not(:last-child)
+      margin-bottom: 0

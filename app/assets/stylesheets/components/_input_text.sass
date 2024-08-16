@@ -1,0 +1,22 @@
+$parent: '.input-text'
+
+#{$parent}
+  width: 100%
+
+  &__field
+    font-size: 14px
+    border: $border
+    border-radius: $border-radius
+    width: 100%
+    padding: 6px 10px 7px
+    transition: border-color 0.3s ease-out
+    background: $color-white
+
+    &:focus,
+    &:active
+      border-color: $color-primary
+
+#{$parent}--errors
+
+  #{$parent}__field
+    border-color: $color-danger
