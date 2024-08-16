@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'main/spa#index'
 
-  namespace :api do
-    namespace :v1 do
-      get 'sessions/create'
-      get 'sessions/destroy'
-      resources :users
-    end
-  end
+  devise_for :users,
+    controllers: {
+      sessions: 'api/v1/users/sessions',
+      registrations: 'api/v1users/registrations'
+    }
+
+  get 'api/v1/member-data', to: 'api/v1/members#show'
 end

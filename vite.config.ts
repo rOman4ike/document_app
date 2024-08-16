@@ -1,8 +1,6 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue2'
 import RubyPlugin from 'vite-plugin-ruby'
-import path from 'path'
-
 
 export default defineConfig({
   plugins: [
@@ -10,9 +8,6 @@ export default defineConfig({
     vue()
   ],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'app/javascript'),
-    },
     extensions: [
       '.vue',
       '.vue.erb',
