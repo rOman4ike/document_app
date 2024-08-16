@@ -1,10 +1,20 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  ROLES = %i(
+    user
+    moderator
+    admin
+  )
+
   devise :database_authenticatable,
     :registerable,
     :jwt_authenticatable,
     jwt_revocation_strategy: JwtDenylist
+
+  ROLES.each do |role|
+    define_method("#{role}?") do
+      permissions.map(&:role).include? role
+    end
+  end
 end
 
 # == Schema Information

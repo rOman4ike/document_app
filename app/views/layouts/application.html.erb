@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= vite_client_tag %>
-    <%= vite_javascript_tag 'main/application' %>
+    <%= yield :head %>
+    <%= Gon::Base.render_data %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'header' %>
+    <main class="main">
+      <%= yield %>
+    </main>
+    <%= render 'footer' %>
   </body>
 </html>

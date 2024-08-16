@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     }
 
   get 'api/v1/member-data', to: 'api/v1/members#show'
+
+  %w(main directory manage).each do |key|
+    namespace(key) { root to: 'spa#index' }
+  end
 end

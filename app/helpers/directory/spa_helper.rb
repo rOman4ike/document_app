@@ -1,0 +1,2 @@
+module Directory::SpaHelper
+end

@@ -1,0 +1,25 @@
+<header class="header">
+  <nav class="nav">
+    <div class="nav__outer">
+      <div class="container">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <%= link_to 'Главная', root_path,
+              class: 'nav__link ' + (current_controller?('main/spa') ? 'nav__link--active' : '')
+            %>
+          </li>
+          <li class="nav__item">
+            <%= link_to 'Справочники', directory_root_path,
+              class: 'nav__link ' + (current_controller?('directory/spa') ? 'nav__link--active' : '')
+            %>
+          </li>
+          <li class="nav__item">
+            <%= link_to 'Управление', manage_root_path,
+              class: 'nav__link ' + (current_controller?('manage/spa') ? 'nav__link--active' : '')
+            %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
