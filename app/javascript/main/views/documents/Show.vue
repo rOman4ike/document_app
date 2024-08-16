@@ -7,7 +7,6 @@
       <div class="page-header__actions">
         <router-link
           class="btn btn--primary"
-          v-can.update.document
           :to="{ name: 'document_edit', params: { id: documentId } }"
         >
           Редактировать документ
@@ -27,7 +26,6 @@
           </button>
           <button
             class="icon icon--delete"
-            v-can.destroy.document
             @click="onDeleteDocument"
           >
           </button>
@@ -142,17 +140,14 @@
 
     <document-versions
       v-if="documentVersions.length"
-      v-can.manage.document
     />
 
     <document-file-archive
       v-if="documentFiles.length"
-      v-can.show_history.documentfile
     />
 
     <change-order-archive
       v-if="changeOrders.length"
-      v-can.manage.changeorder
     />
   </div>
 </template>

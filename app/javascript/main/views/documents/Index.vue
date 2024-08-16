@@ -7,7 +7,6 @@
       <div class="page-header__actions">
         <router-link
           class="btn btn--primary"
-          v-can.create.document
           :to="{ name: 'document_new' }"
         >
           Добавить документ

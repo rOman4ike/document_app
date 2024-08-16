@@ -42,7 +42,6 @@
               </a>
               <button
                 class="icon icon--delete"
-                v-can.destroy.documentfile
                 @click="onDeleteDocumentFile(documentFile.id)"
               >
               </button>
