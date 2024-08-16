@@ -1,24 +1,30 @@
-# README
+# Document_app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение представляет собой хранилище документов с сохранением истории его изменений (включая файлы).
 
-Things you may want to cover:
+В приложении представлен следующий функционал:
+1. Создание документа
+2. Редактирование существующего документа
+3. Поиск документа
+4. Просмотр истории изменения документа (включая файлы)
+5. Заполнение и редактирование  справочников
 
-* Ruby version
+# Установка
 
-* System dependencies
+Установите необходимые гемы:
 
-* Configuration
+```
+bundle install
+```
 
-* Database creation
+Выполните установку dartsass-rails окружения:
 
-* Database initialization
+```
+bin/rails dartsass:install
+```
 
-* How to run the test suite
+Запуск сервера:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bin/rails dartsass:install
+```
