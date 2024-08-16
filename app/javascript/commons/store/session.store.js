@@ -1,3 +1,4 @@
+import Vue from "vue";
 import axios from "axios";
 
 // const BASE_URL = "http://localhost:5100/";
@@ -5,6 +6,7 @@ import axios from "axios";
 export const sessionStore = {
   state: {
     auth_token: null,
+    session: {},
     user: {
       id: null,
       username: null,
@@ -12,17 +14,23 @@ export const sessionStore = {
     }
   },
   mutations: {
-    setUserInfo(state, data) {
+    SET_SESSION_PROPERTY(state, { key, value }) {
+      Vue.set(state.session, key, value)
+    },
+    SET_SESSION(state, session) {
+      Vue.set(state, 'session', session)
+    },
+    SET_USER_INFO(state, data) {
       state.user = data.data.user;
       state.auth_token = data.headers.authorization;
       axios.defaults.headers.common["Authorization"] = data.headers.authorization;
       localStorage.setItem("auth_token", data.headers.authorization);
     },
-    setUserInfoFromToken(state, data) {
+    SET_USER_INFO_FROM_TOKEN(state, data) {
       state.user = data.data.user;
       state.auth_token = localStorage.getItem("auth_token");
     },
-    resetUserInfo(state) {
+    RESET_USER_INFO(state) {
       state.user = {
         id: null,
         username: null,
@@ -39,12 +47,15 @@ export const sessionStore = {
         axios
           .post(`users`, payload)
           .then((response) => {
-            commit("setUserInfo", response);
+            commit("SET_USER_INFO", response);
             resolve(response);
           })
-          .catch((error) => {
-            reject(error);
-          });
+          .catch(error => {
+            if (error.response.data?.errors) {
+              commit('error/SET_ERRORS', error.response.data.errors, { root: true })
+              reject(error)
+            }
+          })
       });
     },
     loginUser({ commit }, payload) {
@@ -52,12 +63,15 @@ export const sessionStore = {
         axios
           .post(`users/sign_in`, payload)
           .then((response) => {
-            commit("setUserInfo", response);
+            commit("SET_USER_INFO", response);
             resolve(response);
           })
-          .catch((error) => {
-            reject(error);
-          });
+          .catch(error => {
+            if (error.response.data?.errors) {
+              commit('error/SET_ERRORS', error.response.data.errors, { root: true })
+              reject(error)
+            }
+          })
       });
     },
     logoutUser({ commit, state }) {
@@ -70,7 +84,7 @@ export const sessionStore = {
         axios
           .delete(`users/sign_out`, config)
           .then(() => {
-            commit("resetUserInfo");
+            commit("RESET_USER_INFO");
             resolve();
           })
           .catch((error) => {
@@ -88,7 +102,7 @@ export const sessionStore = {
         axios
           .get(`api/v1/member-data`, config)
           .then((response) => {
-            commit("setUserInfoFromToken", response);
+            commit("SET_USER_INFO_FROM_TOKEN", response);
             resolve(response);
           })
           .catch((error) => {

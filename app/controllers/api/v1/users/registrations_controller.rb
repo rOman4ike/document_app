@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class Api::V1:Users::RegistrationsController < Devise::RegistrationsController
+class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
 
   private
@@ -19,6 +17,6 @@ class Api::V1:Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def register_failed
-    render json: { message: 'Something went wrong.' }, status: :unprocessable_entity
+    render :errors, status: :unprocessable_entity
   end
 end

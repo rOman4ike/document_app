@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  state: MyString
+  title: MyString
+  user: one
+
+two:
+  kind: MyString
+  state: MyString
+  title: MyString
+  user: two
+
+# == Schema Information
+#
+# Table name: documents
+#
+#  id         :bigint           not null, primary key
+#  is_public  :boolean          default(TRUE)
+#  kind       :string
+#  state      :string
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :string           not null
+#

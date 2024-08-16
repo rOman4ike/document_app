@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  MAX_EMAIL_LENGTH = 255
+  MAX_PASSWORD_LENGTH = 255
+  VALID_EMAIL_REGEX = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
+
   ROLES = %i(
     user
     moderator
@@ -9,6 +13,22 @@ class User < ApplicationRecord
     :registerable,
     :jwt_authenticatable,
     jwt_revocation_strategy: JwtDenylist
+
+  validates :email,
+    presence: {
+      message: I18n.t('errors.user.email.presence')
+    },
+    uniqueness: {
+      message: I18n.t('errors.user.email.uniqueness'),
+      case_sensitive: false
+    },
+    format: {
+      with: VALID_EMAIL_REGEX,
+      multiline: true,
+      message: I18n.t('errors.user.email.format')
+    }
+
+  validates :password, presence: { message: I18n.t('errors.user.password.presence') }
 
   ROLES.each do |role|
     define_method("#{role}?") do
@@ -21,7 +41,7 @@ end
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime

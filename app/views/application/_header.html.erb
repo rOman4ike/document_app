@@ -18,6 +18,19 @@
               class: 'nav__link ' + (current_controller?('manage/spa') ? 'nav__link--active' : '')
             %>
           </li>
+          <% if current_user.blank? %>
+            <li class="nav__item">
+              <%= link_to 'Авторизация', profile_root_path,
+                class: 'nav__link ' + (current_controller?('profile/spa') ? 'nav__link--active' : '')
+              %>
+            </li>
+          <% else %>
+            <li class="nav__item nav__item--right">
+              <%= button_to 'Выход', destroy_user_session_path, method: :delete,
+                class: 'nav__link'
+              %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

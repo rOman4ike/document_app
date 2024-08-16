@@ -10,7 +10,7 @@ end
 #
 # Table name: jwt_denylist
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  exp        :datetime         not null
 #  jti        :string           not null
 #  created_at :datetime         not null
