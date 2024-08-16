@@ -11,10 +11,11 @@
 
 # Установка
 
-Установите необходимые гемы:
+Установите необходимые гемы и зависимости:
 
 ```
 bundle install
+yarn
 ```
 
 Выполните установку dartsass-rails окружения:
@@ -23,8 +24,16 @@ bundle install
 bin/rails dartsass:install
 ```
 
+Настройте базу данных:
+
+```
+bin/rails db:create
+bin/rails db:migrate
+```
+
+
 Запуск сервера:
 
 ```
-bin/rails dartsass:install
+bin/dev
 ```

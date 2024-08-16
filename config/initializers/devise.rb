@@ -2,7 +2,7 @@
 Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+    jwt.secret = ENV['DEVISE_SECRET_KEY']
   end
   require 'devise/orm/active_record'
   config.case_insensitive_keys = [:email]
