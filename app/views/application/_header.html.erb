@@ -13,11 +13,6 @@
               class: 'nav__link ' + (current_controller?('directory/spa') ? 'nav__link--active' : '')
             %>
           </li>
-          <li class="nav__item">
-            <%= link_to 'Управление', manage_root_path,
-              class: 'nav__link ' + (current_controller?('manage/spa') ? 'nav__link--active' : '')
-            %>
-          </li>
           <% if current_user.blank? %>
             <li class="nav__item">
               <%= link_to 'Авторизация', profile_root_path,
