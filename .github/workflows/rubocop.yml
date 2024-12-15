@@ -1,0 +1,37 @@
+name: RuboCop
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_ONLY: development
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby 3.3
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3
+        bundler-cache: true
+
+    - name: Install gems
+      run: |
+        bundle install --jobs 4 --retry 3
+
+    - name: Run RuboCop
+      run: bundle exec rubocop --parallel
+
+    - name: Run erb-lint
+      run: bundle exec erb-lint --lint-all

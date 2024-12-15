@@ -41,6 +41,8 @@ end
 group :development do
   gem "annotate"
   gem "web-console"
+  gem "rubocop-rails-omakase", require: false, group: [ :development ]
+  gem "erb_lint", require: false
 end
 
 group :test do
