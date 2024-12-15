@@ -297,10 +297,10 @@
   dependencies:
     "@types/node" "*"
 
-"@vitejs/plugin-vue2@^2.3.1":
-  version "2.3.1"
-  resolved "https://registry.npmjs.org/@vitejs/plugin-vue2/-/plugin-vue2-2.3.1.tgz"
-  integrity sha512-/ksaaz2SRLN11JQhLdEUhDzOn909WEk99q9t9w+N12GjQCljzv7GyvAbD/p20aBUjHkvpGOoQ+FCOkG+mjDF4A==
+"@vitejs/plugin-vue2@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue2/-/plugin-vue2-2.3.3.tgz#6e1772caeb66914bfcc49bea21d08949d43b3fde"
+  integrity sha512-qexY6+bbwY8h0AZerzUuGywNTi0cLOkbiSbggr0R3WEW95iB2hblQFyv4MAkkc2vm4gZN1cO5kzT1Kp6xlVzZw==
 
 "@vue/compiler-sfc@2.7.16":
   version "2.7.16"
