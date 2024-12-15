@@ -1,13 +1,14 @@
 class User < ApplicationRecord
+  # TODO: TEST
   MAX_EMAIL_LENGTH = 255
   MAX_PASSWORD_LENGTH = 255
   VALID_EMAIL_REGEX = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
 
-  ROLES = %i(
+  ROLES = %i[
     user
     moderator
     admin
-  )
+  ]
 
   devise :database_authenticatable,
     :registerable,
@@ -16,19 +17,19 @@ class User < ApplicationRecord
 
   validates :email,
     presence: {
-      message: I18n.t('errors.user.email.presence')
+      message: I18n.t("errors.user.email.presence")
     },
     uniqueness: {
-      message: I18n.t('errors.user.email.uniqueness'),
+      message: I18n.t("errors.user.email.uniqueness"),
       case_sensitive: false
     },
     format: {
       with: VALID_EMAIL_REGEX,
       multiline: true,
-      message: I18n.t('errors.user.email.format')
+      message: I18n.t("errors.user.email.format")
     }
 
-  validates :password, presence: { message: I18n.t('errors.user.password.presence') }
+  validates :password, presence: { message: I18n.t("errors.user.password.presence") }
 
   ROLES.each do |role|
     define_method("#{role}?") do
