@@ -31,7 +31,7 @@ jobs:
         bundle install --jobs 4 --retry 3
 
     - name: Run erb-lint
-      run: bundle exec erb-lint --lint-all
+      run: bundle exec erb_lint --lint-all
 
     - name: Run RuboCop
       run: bundle exec rubocop --parallel
