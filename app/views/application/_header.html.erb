@@ -4,26 +4,22 @@
       <div class="container">
         <ul class="nav__list">
           <li class="nav__item">
-            <%= link_to 'Главная', root_path,
-              class: 'nav__link ' + (current_controller?('main/spa') ? 'nav__link--active' : '')
-            %>
+            <%= link_to "Главная", root_path,
+              class: "nav__link " + (current_controller?("main/spa") ? "nav__link--active" : "") %>
           </li>
           <li class="nav__item">
-            <%= link_to 'Справочники', directory_root_path,
-              class: 'nav__link ' + (current_controller?('directory/spa') ? 'nav__link--active' : '')
-            %>
+            <%= link_to "Справочники", directory_root_path,
+              class: "nav__link " + (current_controller?("directory/spa") ? "nav__link--active" : "") %>
           </li>
           <% if current_user.blank? %>
             <li class="nav__item">
-              <%= link_to 'Авторизация', profile_root_path,
-                class: 'nav__link ' + (current_controller?('profile/spa') ? 'nav__link--active' : '')
-              %>
+              <%= link_to "Авторизация", profile_root_path,
+                class: "nav__link " + (current_controller?("profile/spa") ? "nav__link--active" : "") %>
             </li>
           <% else %>
             <li class="nav__item nav__item--right">
-              <%= button_to 'Выход', destroy_user_session_path, method: :delete,
-                class: 'nav__link'
-              %>
+              <%= button_to "Выход", destroy_user_session_path, method: :delete,
+                class: "nav__link" %>
             </li>
           <% end %>
         </ul>
